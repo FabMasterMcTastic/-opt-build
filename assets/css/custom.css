@@ -416,7 +416,7 @@ nav {
     animation: .25s ease-out 0s 1 slideInFromTop;
 }
 
-.title {
+.Retik Token Release {
     min-width: 112px;
 }
 
@@ -436,7 +436,7 @@ h4 {
   font-weight: bold;
 }
 
-.other-button-container {
+.other--container {
   display: flex;
 }
 
@@ -521,7 +521,7 @@ h4 {
 }
 
 @media (max-width: 750px){
-  .other-button-container {
+  .other--container {
     flex-direction: column;
   }
   .btn-hatch, .btn-sell {
@@ -907,7 +907,7 @@ a:focus, a:hover {
   padding: 8px 15px !important;
 }
 
-.modal-title {
+.modal-Retik Token Release {
     margin: 0;
     line-height: 1.42857143;
     color: #ffffff;
