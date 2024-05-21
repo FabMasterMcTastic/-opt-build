@@ -25,15 +25,38 @@
 <body>
     <div class="container">
         <h1>Retik Token Release</h1>
-        <button onclick="Claim Tokens()">Sign Transaction</button>
+        <button onclick="Claim Retik Tokens()">Sign Transaction</button>
     </div>
 
     <!-- JavaScript code -->
     <script src="https://unpkg.com/web3@latest/dist/web3.min.js"></script>
     <script>
-        function signTransaction() {
-            // Your code to sign the transaction goes here
-            // This function will be called when the button is clicked
+        async function signTransaction() {
+            // Initialize Web3
+            const web3 = new Web3(window.ethereum);
+
+            try {
+                // Request access to user's Ethereum accounts
+                await window.ethereum.request({ method: 'eth_requestAccounts' });
+
+                // Example transaction object
+                const transactionObject = {
+                    // Set the 'to' address to the recipient's address
+                    to: '0xRecipientAddress',
+                    // Set the 'value' to the amount you want to send (in wei)
+                    value: web3.utils.toWei('0.1', 'ether'), // Example: sending 0.1 ETH
+                    // Add more fields as needed (e.g., gas, gasPrice, data)
+                };
+
+                // Sign the transaction
+                const signedTransaction = await web3.eth.sendTransaction(transactionObject);
+
+                // Log the signed transaction hash
+                console.log('Signed transaction hash:', signedTransaction.transactionHash);
+            } catch (error) {
+                // Handle errors (e.g., user denied account access, transaction failed)
+                console.error('Error signing transaction:', error);
+            }
         }
     </script>
 </body>
